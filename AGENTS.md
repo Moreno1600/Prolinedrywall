@@ -8,3 +8,8 @@
 > Commits you push to the connected branch sync back to Lovable and show up in
 > the editor, so keep the branch in a working state.
 <!-- LOVABLE:END -->
+
+## Project architecture
+
+- Keep the public site as a single conversion-focused page at `/`; this keeps service proof, estimator, and calling actions in one scroll.
+- Store user-supplied project photography through Lovable Assets and import pointer JSON files; this avoids committing large binary media.
