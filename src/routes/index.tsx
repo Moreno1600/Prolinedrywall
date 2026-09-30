@@ -4,7 +4,7 @@ import { useMemo, useState } from "react";
 
 import archAsset from "../assets/proline-arched-interior.png.asset.json";
 import builtinsAsset from "../assets/proline-builtins.png.asset.json";
-import logoAsset from "../assets/proline-logo-transparent.png.asset.json";
+import logoAsset from "../assets/proline-logo-transparent-v2.png.asset.json";
 import textureAsset from "../assets/proline-texture-project.png.asset.json";
 
 export const Route = createFileRoute("/")({
@@ -29,13 +29,14 @@ export const Route = createFileRoute("/")({
 });
 
 const services = [
-  ["01", "Drywall installation", "Measured, cut, and fastened for clean planes in new construction and residential remodels."],
-  ["02", "Tape & mud", "Multi-coat finishing, careful feathering, and precise sanding for seamless joints."],
-  ["03", "Texture & finish", "Smooth Level 5 surfaces, knockdown, orange peel, and detailed texture matching."],
-  ["04", "Interior paint", "Professional primer and interior paint applied as the final layer of a complete finish."],
+  { number: "01", title: "Knockdown texture", description: "Controlled depth and even coverage for a dimensional finish that performs across large surfaces." },
+  { number: "02", title: "Orange peel texture", description: "Consistent spray texture with careful masking and clean transitions at every edge." },
+  { number: "03", title: "Level 4 smooth", description: "A refined, paint-ready finish built for dependable results in most residential interiors." },
+  { number: "04", title: "Level 5 smooth", description: "Full skim-coat finishing for demanding light, deep colors, and premium architectural spaces." },
+  { number: "05", title: "Interior paint", description: "A complete finish service is being added to the ProLine lineup.", status: "Coming soon" },
 ];
 
-const ticker = ["Drywall installation", "Level 5 finishing", "Custom texture", "Interior paint", "Northwest Arkansas"];
+const ticker = ["Knockdown texture", "Orange peel", "Level 4 smooth", "Level 5 smooth", "Northwest Arkansas"];
 
 function Index() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -59,7 +60,7 @@ function Index() {
             <img
               src={logoAsset.url}
               alt="ProLine Drywall"
-              className="h-12 w-[9.5rem] object-cover object-center transition-opacity group-hover:opacity-80"
+              className="h-12 w-auto max-w-[10rem] object-contain transition-opacity group-hover:opacity-80"
             />
           </a>
 
@@ -109,7 +110,7 @@ function Index() {
             </h1>
             <div className="mt-8 flex flex-col items-start justify-between gap-8 border-t border-foreground/20 pt-7 md:flex-row md:items-end">
               <p className="max-w-xl text-base leading-relaxed text-foreground/70 md:text-lg">
-                Precision drywall installation, Level 5 finishing, custom texture, and interior paint for modern Northwest Arkansas spaces.
+                Knockdown, orange peel, Level 4, and Level 5 finishes delivered with disciplined prep and sharp architectural detail.
               </p>
               <div className="flex flex-wrap gap-3">
                 <a href="#estimate" className="button-primary">Get an estimate <ArrowDownRight size={17} /></a>
@@ -138,13 +139,16 @@ function Index() {
               <h2 className="section-title">Every layer.<br />One standard.</h2>
             </div>
             <p className="max-w-lg text-lg leading-relaxed text-muted-foreground lg:justify-self-end">
-              From first board to final coat, ProLine manages the surfaces that define the room.
+              Four finish systems, one exacting standard—matched to the light, use, and character of each room.
             </p>
           </div>
-          <div className="grid border-l border-t border-border sm:grid-cols-2 lg:grid-cols-4">
-            {services.map(([number, title, description]) => (
-              <article key={number} className="service-item border-b border-r border-border p-7 lg:min-h-72 lg:p-8">
-                <span className="font-mono text-xs text-primary">{number} /</span>
+          <div className="grid border-l border-t border-border sm:grid-cols-2 lg:grid-cols-5">
+            {services.map(({ number, title, description, status }) => (
+              <article key={number} className="service-item border-b border-r border-border p-7 lg:min-h-80 lg:p-7">
+                <div className="flex items-center justify-between gap-3">
+                  <span className="font-mono text-xs text-primary">{number} /</span>
+                  {status && <span className="border border-primary px-2 py-1 text-[0.6rem] font-bold uppercase text-primary">{status}</span>}
+                </div>
                 <div className="mt-16 lg:mt-24">
                   <h3 className="font-display text-xl font-bold uppercase">{title}</h3>
                   <p className="mt-4 text-sm leading-relaxed text-muted-foreground">{description}</p>
@@ -189,7 +193,7 @@ function Index() {
             <h2 className="section-title max-w-4xl">Your walls should disappear. The quality shouldn’t.</h2>
           </div>
           <div className="space-y-7 lg:col-span-4 lg:col-start-9 lg:pt-10">
-            {["Controlled, detail-first installation", "Clean finishing around complex geometry", "One team from drywall through interior paint"].map((item) => (
+            {["Four distinct finish systems", "Clean finishing around complex geometry", "Painting capability coming soon"].map((item) => (
               <div key={item} className="flex gap-4 border-t border-border pt-5">
                 <Check className="mt-0.5 shrink-0 text-primary" size={18} />
                 <p className="text-muted-foreground">{item}</p>
@@ -211,10 +215,9 @@ function Index() {
               <label className="field md:col-span-2">
                 <span>Project scope</span>
                 <select value={scope} onChange={(event) => setScope(event.target.value)}>
-                  <option value="3.5">Full package — install through paint</option>
+                  <option value="3.5">Full drywall package — install through finish</option>
                   <option value="1.75">Drywall installation only</option>
                   <option value="1.5">Tape, mud & finish only</option>
-                  <option value="1.25">Interior painting only</option>
                 </select>
               </label>
               <label className="field">
@@ -224,9 +227,10 @@ function Index() {
               <label className="field">
                 <span>Finish tier</span>
                 <select value={tier} onChange={(event) => setTier(event.target.value)}>
-                  <option value="1">Standard texture — Level 3/4</option>
+                  <option value="1">Knockdown texture</option>
+                  <option value="1.05">Orange peel texture</option>
+                  <option value="1.18">Level 4 smooth</option>
                   <option value="1.4">Elite smooth finish — Level 5</option>
-                  <option value="0.9">Utility finish</option>
                 </select>
               </label>
             </div>

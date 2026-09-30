@@ -5,4 +5,4 @@
 - [x] Preserve and improve the instant estimate calculator and click-to-call actions.
 - [x] Verify desktop and mobile presentation, interactions, and current build status.
 
-- [ ] Feature Knockdown, Orange Peel, Level 4 Smooth, and Level 5 Smooth; position painting as coming soon.
+- [x] Feature Knockdown, Orange Peel, Level 4 Smooth, and Level 5 Smooth; position painting as coming soon.
