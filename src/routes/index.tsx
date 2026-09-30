@@ -4,6 +4,7 @@ import { useMemo, useState } from "react";
 
 import archAsset from "../assets/proline-arched-interior.png.asset.json";
 import builtinsAsset from "../assets/proline-builtins.png.asset.json";
+import logoAsset from "../assets/proline-logo.jpeg.asset.json";
 import textureAsset from "../assets/proline-texture-project.png.asset.json";
 
 export const Route = createFileRoute("/")({
@@ -54,12 +55,12 @@ function Index() {
     <main className="min-h-screen overflow-hidden bg-background text-foreground">
       <header className="fixed inset-x-0 top-0 z-50 border-b border-border bg-background/80 backdrop-blur-xl">
         <div className="mx-auto flex h-20 max-w-[90rem] items-center justify-between px-5 lg:px-10">
-          <a href="#top" className="group flex items-center gap-3" aria-label="ProLine Drywall home">
-            <span className="h-8 w-1 bg-primary transition-transform group-hover:scale-y-75" />
-            <span>
-              <span className="block font-display text-xl font-bold uppercase leading-none">ProLine</span>
-              <span className="mt-1 block text-[0.62rem] font-bold uppercase tracking-[0.22em] text-muted-foreground">Drywall / NWA</span>
-            </span>
+          <a href="#top" className="group flex items-center" aria-label="ProLine Drywall home">
+            <img
+              src={logoAsset.url}
+              alt="ProLine Drywall"
+              className="h-12 w-[9.5rem] object-cover object-center transition-opacity group-hover:opacity-80"
+            />
           </a>
 
           <nav className="hidden items-center gap-8 text-sm font-semibold md:flex" aria-label="Main navigation">
