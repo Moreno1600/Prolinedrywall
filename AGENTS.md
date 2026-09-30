@@ -12,4 +12,4 @@
 ## Project architecture
 
 - Keep the public site as a single conversion-focused page at `/`; this keeps service proof, estimator, and calling actions in one scroll.
-- Store user-supplied project photography through Lovable Assets and import pointer JSON files; this avoids committing large binary media.
+- Store user-supplied site media through Lovable Assets and import pointer JSON files; this avoids committing large binary media.
