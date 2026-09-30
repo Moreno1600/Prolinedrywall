@@ -4,7 +4,7 @@ import { useMemo, useState } from "react";
 
 import archAsset from "../assets/proline-arched-interior.png.asset.json";
 import builtinsAsset from "../assets/proline-builtins.png.asset.json";
-import logoAsset from "../assets/proline-logo.jpeg.asset.json";
+import logoAsset from "../assets/proline-logo-transparent.png.asset.json";
 import textureAsset from "../assets/proline-texture-project.png.asset.json";
 
 export const Route = createFileRoute("/")({
