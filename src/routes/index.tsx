@@ -16,10 +16,14 @@ export const Route = createFileRoute("/")({
         content:
           "Precision drywall installation, finishing, texture, and interior painting across Northwest Arkansas. Get an instant project estimate.",
       },
-      { property: "og:title", content: "ProLine Drywall | Precision Built Into Every Surface" },
+      {
+        property: "og:title",
+        content: "ProLine Drywall | Built Clean. Finished Sharp.",
+      },
       {
         property: "og:description",
-        content: "Professional drywall installation and architectural finishing for Northwest Arkansas.",
+        content:
+          "Knockdown, orange peel, Level 4, and Level 5 drywall finishing for Northwest Arkansas.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
@@ -29,11 +33,11 @@ export const Route = createFileRoute("/")({
 });
 
 const services = [
-  { number: "01", title: "Knockdown texture", description: "Controlled depth and even coverage for a dimensional finish that performs across large surfaces." },
-  { number: "02", title: "Orange peel texture", description: "Consistent spray texture with careful masking and clean transitions at every edge." },
-  { number: "03", title: "Level 4 smooth", description: "A refined, paint-ready finish built for dependable results in most residential interiors." },
-  { number: "04", title: "Level 5 smooth", description: "Full skim-coat finishing for demanding light, deep colors, and premium architectural spaces." },
-  { number: "05", title: "Interior paint", description: "A complete finish service is being added to the ProLine lineup.", status: "Coming soon" },
+  { number: "01", title: "Knockdown texture", description: "Sprayed, knocked down, and dried to the same depth across every square foot. Dimensional without looking heavy." },
+  { number: "02", title: "Orange peel texture", description: "A fine, even spray with everything masked and every edge cut clean. Texture that reads smooth, not speckled." },
+  { number: "03", title: "Level 4 smooth", description: "Tight seams, clean corners, paint-ready. The dependable finish for most rooms in the house." },
+  { number: "04", title: "Level 5 smooth", description: "A full skim coat that holds up to hard light and deep color. Flat under the flashlight, not just the camera." },
+  { number: "05", title: "Interior paint", description: "Color from the same crew that finished your walls. Rolling into the lineup soon.", status: "Coming soon" },
 ];
 
 const ticker = ["Knockdown texture", "Orange peel", "Level 4 smooth", "Level 5 smooth", "Northwest Arkansas"];
@@ -110,7 +114,7 @@ function Index() {
             </h1>
             <div className="mt-8 flex flex-col items-start justify-between gap-8 border-t border-foreground/20 pt-7 md:flex-row md:items-end">
               <p className="max-w-xl text-base leading-relaxed text-foreground/70 md:text-lg">
-                Knockdown, orange peel, Level 4, and Level 5 finishes delivered with disciplined prep and sharp architectural detail.
+                Knockdown, orange peel, Level 4, Level 5 — prepped tight, finished flat, and detailed like it has to pass the light test.
               </p>
               <div className="flex flex-wrap gap-3">
                 <a href="#estimate" className="button-primary">Get an estimate <ArrowDownRight size={17} /></a>
@@ -139,7 +143,7 @@ function Index() {
               <h2 className="section-title">Every layer.<br />One standard.</h2>
             </div>
             <p className="max-w-lg text-lg leading-relaxed text-muted-foreground lg:justify-self-end">
-              Four finish systems, one exacting standard—matched to the light, use, and character of each room.
+              Four finish systems, one bar to clear — chosen to match each room's light, use, and character.
             </p>
           </div>
           <div className="grid border-l border-t border-border sm:grid-cols-2 lg:grid-cols-5">
@@ -166,7 +170,7 @@ function Index() {
               <p className="section-kicker">02 / Field work</p>
               <h2 className="section-title">The work<br />speaks first.</h2>
             </div>
-            <p className="max-w-md text-muted-foreground">Real ProLine projects. Clean transitions, controlled texture, and detail carried through every surface.</p>
+            <p className="max-w-md text-muted-foreground">Real ProLine jobs. Tight transitions, even texture, and detail carried all the way to the last edge.</p>
           </div>
 
           <div className="project-grid">
@@ -193,7 +197,7 @@ function Index() {
             <h2 className="section-title max-w-4xl">Your walls should disappear. The quality shouldn’t.</h2>
           </div>
           <div className="space-y-7 lg:col-span-4 lg:col-start-9 lg:pt-10">
-            {["Four distinct finish systems", "Clean finishing around complex geometry", "Painting capability coming soon"].map((item) => (
+            {["Four finish systems, zero shortcuts", "Sharp detail around arches, corners, and built-ins", "Painting on the way — same crew, same standard"].map((item) => (
               <div key={item} className="flex gap-4 border-t border-border pt-5">
                 <Check className="mt-0.5 shrink-0 text-primary" size={18} />
                 <p className="text-muted-foreground">{item}</p>
@@ -208,7 +212,7 @@ function Index() {
           <div className="lg:col-span-4">
             <p className="section-kicker">04 / Ballpark</p>
             <h2 className="section-title">Start with a range.</h2>
-            <p className="mt-7 max-w-sm text-muted-foreground">Enter your project details for an initial range, then call to schedule an on-site quote.</p>
+            <p className="mt-7 max-w-sm text-muted-foreground">Type in your square footage for an honest ballpark. Then we walk the job and quote it straight.</p>
           </div>
           <div className="border border-border bg-card p-5 sm:p-8 lg:col-span-8 lg:p-10">
             <div className="grid gap-7 md:grid-cols-2">
