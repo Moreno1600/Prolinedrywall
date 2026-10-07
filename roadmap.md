@@ -7,3 +7,4 @@
 
 - [x] Feature Knockdown, Orange Peel, Level 4 Smooth, and Level 5 Smooth; position painting as coming soon.
 - [x] Replace the estimate calculator with a plain free-estimates section and clean anchor scrolling.
+- [x] Add Our Work navigation and a photo/video gallery with an enlarged media viewer; verify filtering and viewing.

@@ -1,11 +1,10 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { ArrowDownRight, ArrowUpRight, Check, Menu, Phone, X } from "lucide-react";
 import { useState } from "react";
+import { WorkGallery } from "@/components/work-gallery";
 
 import archAsset from "../assets/proline-arched-interior.png.asset.json";
-import builtinsAsset from "../assets/proline-builtins.png.asset.json";
 import logoAsset from "../assets/proline-logo-transparent-v2.png.asset.json";
-import textureAsset from "../assets/proline-texture-project.png.asset.json";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -65,7 +64,7 @@ function Index() {
 
           <nav className="hidden items-center gap-8 text-sm font-semibold md:flex" aria-label="Main navigation">
             <a href="#services" className="nav-link">Services</a>
-            <a href="#work" className="nav-link">Work</a>
+            <a href="#work" className="nav-link">Our Work</a>
             <a href="#estimate" className="nav-link">Free estimates</a>
           </nav>
 
@@ -88,7 +87,7 @@ function Index() {
           <nav className="border-t border-border bg-background px-5 py-5 md:hidden" aria-label="Mobile navigation">
             <div className="flex flex-col gap-4 font-display text-xl font-semibold">
               <a href="#services" onClick={() => setMenuOpen(false)}>Services</a>
-              <a href="#work" onClick={() => setMenuOpen(false)}>Work</a>
+              <a href="#work" onClick={() => setMenuOpen(false)}>Our Work</a>
               <a href="#estimate" onClick={() => setMenuOpen(false)}>Free estimates</a>
               <a href="tel:4793204243" className="text-primary">(479) 320-4243</a>
             </div>
@@ -162,26 +161,13 @@ function Index() {
         <div className="mx-auto max-w-[90rem] px-5 lg:px-10">
           <div className="mb-14 flex flex-col justify-between gap-6 md:flex-row md:items-end">
             <div>
-              <p className="section-kicker">02 / Field work</p>
-              <h2 className="section-title">The work<br />speaks first.</h2>
+              <p className="section-kicker">02 / Our Work</p>
+              <h2 className="section-title">Real projects.<br />Sharp finishes.</h2>
             </div>
-            <p className="max-w-md text-muted-foreground">Real ProLine jobs. Tight transitions, even texture, and detail carried all the way to the last edge.</p>
+            <p className="max-w-md text-muted-foreground">On the job. Down to the detail. See what goes into a ProLine finish.</p>
           </div>
 
-          <div className="project-grid">
-            <figure className="project project-tall">
-              <img src={archAsset.url} alt="Finished archway and tall interior drywall surfaces" />
-              <figcaption><span>Architectural volumes</span><span>01</span></figcaption>
-            </figure>
-            <figure className="project project-wide">
-              <img src={builtinsAsset.url} alt="Custom green and wood built-in shelving with finished walls" />
-              <figcaption><span>Integrated built-ins</span><span>02</span></figcaption>
-            </figure>
-            <figure className="project project-wide">
-              <img src={textureAsset.url} alt="Textured renovation space with black-framed windows" />
-              <figcaption><span>Texture & transition</span><span>03</span></figcaption>
-            </figure>
-          </div>
+          <WorkGallery />
         </div>
       </section>
 
