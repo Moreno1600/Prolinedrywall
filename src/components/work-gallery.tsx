@@ -18,7 +18,6 @@ import v5 from "@/assets/proline-img-4120.mp4.asset.json";
 import p5 from "@/assets/proline-img-4120.jpg.asset.json";
 
 type WorkItem = {
-  title: string;
   description: string;
   type: "photo" | "video";
   src: string;
@@ -26,14 +25,14 @@ type WorkItem = {
 };
 
 const work: WorkItem[] = [
-  { title: "Architectural volumes", description: "Finished archway and tall interior drywall surfaces", type: "photo", src: archAsset.url },
-  { title: "Integrated built-ins", description: "Custom green and wood built-in shelving with finished walls", type: "photo", src: builtinsAsset.url },
-  { title: "Texture & transition", description: "Textured renovation space with black-framed windows", type: "photo", src: textureAsset.url },
-  { title: "On the job 01", description: "ProLine job site video", type: "video", src: v1.url, poster: p1.url },
-  { title: "On the job 02", description: "ProLine job site video", type: "video", src: v2.url, poster: p2.url },
-  { title: "On the job 03", description: "ProLine job site video", type: "video", src: v3.url, poster: p3.url },
-  { title: "On the job 04", description: "ProLine job site video", type: "video", src: v4.url, poster: p4.url },
-  { title: "On the job 05", description: "ProLine job site video", type: "video", src: v5.url, poster: p5.url },
+  { description: "Finished archway and tall interior drywall surfaces", type: "photo", src: archAsset.url },
+  { description: "Custom green and wood built-in shelving with finished walls", type: "photo", src: builtinsAsset.url },
+  { description: "Textured renovation space with black-framed windows", type: "photo", src: textureAsset.url },
+  { type: "video", description: "ProLine job site video", src: v1.url, poster: p1.url },
+  { type: "video", description: "ProLine job site video", src: v2.url, poster: p2.url },
+  { type: "video", description: "ProLine job site video", src: v3.url, poster: p3.url },
+  { type: "video", description: "ProLine job site video", src: v4.url, poster: p4.url },
+  { type: "video", description: "ProLine job site video", src: v5.url, poster: p5.url },
 ];
 
 export function WorkGallery() {
@@ -54,13 +53,12 @@ export function WorkGallery() {
         <div className="project-grid">
           {items.map((item, index) => (
             <figure key={item.src} className={`project ${index === 0 ? "project-tall" : "project-wide"}`}>
-              <Button variant="ghost" onClick={() => setSelected(item)} aria-label={`View ${item.title}`} className="absolute inset-0 h-full w-full rounded-none p-0 hover:bg-transparent">
+              <Button variant="ghost" onClick={() => setSelected(item)} aria-label={item.type === "video" ? "Play video" : "View photo larger"} className="absolute inset-0 h-full w-full rounded-none p-0 hover:bg-transparent">
                 {item.type === "photo" ? <img src={item.src} alt={item.description} loading="lazy" /> : <video src={item.src} poster={item.poster} muted playsInline preload="metadata" className="h-full w-full object-cover" />}
                 <span className="absolute right-4 top-4 flex h-10 w-10 items-center justify-center border border-border bg-background/80 text-foreground">
                   {item.type === "video" ? <Play size={18} /> : <Maximize2 size={18} />}
                 </span>
               </Button>
-              <figcaption className="pointer-events-none"><span>{item.title}</span><span>{String(index + 1).padStart(2, "0")}</span></figcaption>
             </figure>
           ))}
         </div>
@@ -75,7 +73,7 @@ export function WorkGallery() {
       <Dialog open={selected !== null} onOpenChange={(open) => { if (!open) setSelected(null); }}>
         <DialogContent aria-describedby={undefined} className="max-w-5xl gap-4 rounded-none border-border bg-background p-5 pt-12">
           {selected && <>
-            <DialogTitle className="font-display">{selected.title}</DialogTitle>
+            <DialogTitle className="sr-only">{selected.type === "video" ? "Project video" : "Project photo"}</DialogTitle>
             {selected.type === "photo" ? <img src={selected.src} alt={selected.description} className="max-h-[70svh] w-full object-contain" /> : <video src={selected.src} poster={selected.poster} controls autoPlay playsInline className="max-h-[70svh] w-full" />}
           </>}
         </DialogContent>
