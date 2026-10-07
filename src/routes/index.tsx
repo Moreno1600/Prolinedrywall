@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { ArrowDownRight, ArrowUpRight, Check, Menu, Phone, X } from "lucide-react";
-import { useMemo, useState } from "react";
+import { useState } from "react";
 
 import archAsset from "../assets/proline-arched-interior.png.asset.json";
 import builtinsAsset from "../assets/proline-builtins.png.asset.json";
@@ -14,7 +14,7 @@ export const Route = createFileRoute("/")({
       {
         name: "description",
         content:
-          "Precision drywall installation, finishing, texture, and interior painting across Northwest Arkansas. Get an instant project estimate.",
+          "Precision drywall installation, finishing, texture, and interior painting across Northwest Arkansas. Free on-site estimates, no pressure.",
       },
       {
         property: "og:title",
@@ -42,19 +42,14 @@ const services = [
 
 const ticker = ["Knockdown texture", "Orange peel", "Level 4 smooth", "Level 5 smooth", "Northwest Arkansas"];
 
+const estimateSteps = [
+  { number: "01", title: "Call or text", description: "A real person answers. Tell us the room and the finish you want." },
+  { number: "02", title: "Walk the job", description: "We measure, read the light, and see what's underneath before quoting." },
+  { number: "03", title: "Written number", description: "One price, scope in writing, before a single sheet goes up." },
+];
+
 function Index() {
   const [menuOpen, setMenuOpen] = useState(false);
-  const [scope, setScope] = useState("3.5");
-  const [squareFeet, setSquareFeet] = useState("");
-  const [tier, setTier] = useState("1");
-
-  const estimate = useMemo(() => {
-    const area = Number(squareFeet);
-    if (!Number.isFinite(area) || area <= 0) return "$0 – $0";
-    const total = area * Number(scope) * Number(tier);
-    const format = (value: number) => Math.round(value).toLocaleString("en-US");
-    return `$${format(total * 0.9)} – $${format(total * 1.15)}`;
-  }, [scope, squareFeet, tier]);
 
   return (
     <main className="min-h-screen overflow-hidden bg-background text-foreground">
@@ -71,7 +66,7 @@ function Index() {
           <nav className="hidden items-center gap-8 text-sm font-semibold md:flex" aria-label="Main navigation">
             <a href="#services" className="nav-link">Services</a>
             <a href="#work" className="nav-link">Work</a>
-            <a href="#estimate" className="nav-link">Estimate</a>
+            <a href="#estimate" className="nav-link">Free estimates</a>
           </nav>
 
           <div className="flex items-center gap-3">
@@ -94,7 +89,7 @@ function Index() {
             <div className="flex flex-col gap-4 font-display text-xl font-semibold">
               <a href="#services" onClick={() => setMenuOpen(false)}>Services</a>
               <a href="#work" onClick={() => setMenuOpen(false)}>Work</a>
-              <a href="#estimate" onClick={() => setMenuOpen(false)}>Estimate</a>
+              <a href="#estimate" onClick={() => setMenuOpen(false)}>Free estimates</a>
               <a href="tel:4793204243" className="text-primary">(479) 320-4243</a>
             </div>
           </nav>
@@ -117,7 +112,7 @@ function Index() {
                 Knockdown, orange peel, Level 4, Level 5 — prepped tight, finished flat, and detailed like it has to pass the light test.
               </p>
               <div className="flex flex-wrap gap-3">
-                <a href="#estimate" className="button-primary">Get an estimate <ArrowDownRight size={17} /></a>
+                <a href="#estimate" className="button-primary">Free estimate <ArrowDownRight size={17} /></a>
                 <a href="tel:4793204243" className="button-secondary">Call ProLine <Phone size={16} /></a>
               </div>
             </div>
@@ -209,43 +204,28 @@ function Index() {
 
       <section id="estimate" className="bg-secondary py-24 lg:py-32">
         <div className="mx-auto grid max-w-[90rem] gap-14 px-5 lg:grid-cols-12 lg:px-10">
-          <div className="lg:col-span-4">
-            <p className="section-kicker">04 / Ballpark</p>
-            <h2 className="section-title">Start with a range.</h2>
-            <p className="mt-7 max-w-sm text-muted-foreground">Type in your square footage for an honest ballpark. Then we walk the job and quote it straight.</p>
+          <div className="lg:col-span-7">
+            <p className="section-kicker">04 / Free estimates</p>
+            <h2 className="section-title">Free estimate.<br />Straight answer.</h2>
+            <p className="mt-7 max-w-xl text-lg leading-relaxed text-muted-foreground">
+              Tell us the room, the finish, and the timeline. We walk the job, check the light, and hand you a written number. No charge to look, no pressure to book.
+            </p>
+            <div className="mt-9 flex flex-wrap gap-3">
+              <a href="tel:4793204243" className="button-primary">Call ProLine <Phone size={16} /></a>
+              <a href="sms:4793204243" className="button-secondary">Text a photo <ArrowUpRight size={17} /></a>
+            </div>
+            <p className="mt-7 text-xs uppercase tracking-[0.16em] text-muted-foreground">Fayetteville · Rogers · Bentonville · Springdale</p>
           </div>
-          <div className="border border-border bg-card p-5 sm:p-8 lg:col-span-8 lg:p-10">
-            <div className="grid gap-7 md:grid-cols-2">
-              <label className="field md:col-span-2">
-                <span>Project scope</span>
-                <select value={scope} onChange={(event) => setScope(event.target.value)}>
-                  <option value="3.5">Full drywall package — install through finish</option>
-                  <option value="1.75">Drywall installation only</option>
-                  <option value="1.5">Tape, mud & finish only</option>
-                </select>
-              </label>
-              <label className="field">
-                <span>Approximate square footage</span>
-                <input type="number" inputMode="numeric" min="0" placeholder="e.g. 1,200" value={squareFeet} onChange={(event) => setSquareFeet(event.target.value)} />
-              </label>
-              <label className="field">
-                <span>Finish tier</span>
-                <select value={tier} onChange={(event) => setTier(event.target.value)}>
-                  <option value="1">Knockdown texture</option>
-                  <option value="1.05">Orange peel texture</option>
-                  <option value="1.18">Level 4 smooth</option>
-                  <option value="1.4">Elite smooth finish — Level 5</option>
-                </select>
-              </label>
-            </div>
-            <div className="mt-10 flex flex-col justify-between gap-7 border-t border-border pt-8 md:flex-row md:items-end">
-              <div>
-                <p className="text-xs font-bold uppercase tracking-[0.16em] text-muted-foreground">Ballpark project range</p>
-                <output className="mt-2 block font-display text-[clamp(2.35rem,5vw,4.5rem)] font-bold leading-none text-primary" aria-live="polite">{estimate}</output>
-                <p className="mt-3 text-xs text-muted-foreground">Final pricing requires an on-site review.</p>
+          <div className="lg:col-span-4 lg:col-start-9 lg:pt-12">
+            {estimateSteps.map(({ number, title, description }) => (
+              <div key={number} className="border-t border-border py-6 first:border-t-0 first:pt-0">
+                <div className="flex items-baseline justify-between gap-4">
+                  <h3 className="font-display text-lg font-bold uppercase">{title}</h3>
+                  <span className="font-mono text-xs text-primary">{number}</span>
+                </div>
+                <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{description}</p>
               </div>
-              <a href="tel:4793204243" className="button-primary shrink-0">Call for a quote <ArrowUpRight size={17} /></a>
-            </div>
+            ))}
           </div>
         </div>
       </section>
