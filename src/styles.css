@@ -248,12 +248,6 @@
 .project:hover img { transform: scale(1.025); filter: saturate(1) contrast(1.02); }
 .project figcaption { position: absolute; inset-inline: 0; bottom: 0; display: flex; justify-content: space-between; background: linear-gradient(transparent, oklch(0.1 0 0 / 92%)); padding: 4rem 1.25rem 1.25rem; font-family: var(--font-display); font-size: 0.75rem; font-weight: 700; text-transform: uppercase; }
 
-.field { display: grid; gap: 0.65rem; }
-.field span { color: var(--color-muted-foreground); font-size: 0.68rem; font-weight: 700; text-transform: uppercase; }
-.field input, .field select { min-height: 3.5rem; width: 100%; border: 1px solid var(--color-input); background: var(--color-background); padding-inline: 1rem; color: var(--color-foreground); }
-.field input:focus, .field select:focus { border-color: var(--color-primary); outline: none; }
-.field input::placeholder { color: var(--color-muted-foreground); }
-
 @media (min-width: 768px) {
   .project-grid { grid-template-columns: 1.05fr 1fr; grid-template-rows: repeat(2, minmax(20rem, 28rem)); }
   .project-tall { grid-row: 1 / 3; }
