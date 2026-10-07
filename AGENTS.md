@@ -13,3 +13,4 @@
 
 - Keep the public site as a single conversion-focused page at `/`; this keeps service proof, estimator, and calling actions in one scroll.
 - Store user-supplied site media through Lovable Assets and import pointer JSON files; this avoids committing large binary media.
+- Keep photo and video portfolio entries together in the work gallery with media-type filtering and an accessible viewer; this supports future project media without separate public pages.
