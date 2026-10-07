@@ -18,7 +18,6 @@ import v5 from "@/assets/proline-img-4120.mp4.asset.json";
 import p5 from "@/assets/proline-img-4120.jpg.asset.json";
 
 type WorkItem = {
-  title: string;
   description: string;
   type: "photo" | "video";
   src: string;
@@ -26,14 +25,14 @@ type WorkItem = {
 };
 
 const work: WorkItem[] = [
-  { title: "Architectural volumes", description: "Finished archway and tall interior drywall surfaces", type: "photo", src: archAsset.url },
-  { title: "Integrated built-ins", description: "Custom green and wood built-in shelving with finished walls", type: "photo", src: builtinsAsset.url },
-  { title: "Texture & transition", description: "Textured renovation space with black-framed windows", type: "photo", src: textureAsset.url },
-  { title: "On the job 01", description: "ProLine job site video", type: "video", src: v1.url, poster: p1.url },
-  { title: "On the job 02", description: "ProLine job site video", type: "video", src: v2.url, poster: p2.url },
-  { title: "On the job 03", description: "ProLine job site video", type: "video", src: v3.url, poster: p3.url },
-  { title: "On the job 04", description: "ProLine job site video", type: "video", src: v4.url, poster: p4.url },
-  { title: "On the job 05", description: "ProLine job site video", type: "video", src: v5.url, poster: p5.url },
+  { description: "Finished archway and tall interior drywall surfaces", type: "photo", src: archAsset.url },
+  { description: "Custom green and wood built-in shelving with finished walls", type: "photo", src: builtinsAsset.url },
+  { description: "Textured renovation space with black-framed windows", type: "photo", src: textureAsset.url },
+  { type: "video", description: "ProLine job site video", src: v1.url, poster: p1.url },
+  { type: "video", description: "ProLine job site video", src: v2.url, poster: p2.url },
+  { type: "video", description: "ProLine job site video", src: v3.url, poster: p3.url },
+  { type: "video", description: "ProLine job site video", src: v4.url, poster: p4.url },
+  { type: "video", description: "ProLine job site video", src: v5.url, poster: p5.url },
 ];
 
 export function WorkGallery() {
