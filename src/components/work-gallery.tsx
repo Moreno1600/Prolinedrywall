@@ -53,13 +53,12 @@ export function WorkGallery() {
         <div className="project-grid">
           {items.map((item, index) => (
             <figure key={item.src} className={`project ${index === 0 ? "project-tall" : "project-wide"}`}>
-              <Button variant="ghost" onClick={() => setSelected(item)} aria-label={`View ${item.title}`} className="absolute inset-0 h-full w-full rounded-none p-0 hover:bg-transparent">
+              <Button variant="ghost" onClick={() => setSelected(item)} aria-label={item.type === "video" ? "Play video" : "View photo larger"} className="absolute inset-0 h-full w-full rounded-none p-0 hover:bg-transparent">
                 {item.type === "photo" ? <img src={item.src} alt={item.description} loading="lazy" /> : <video src={item.src} poster={item.poster} muted playsInline preload="metadata" className="h-full w-full object-cover" />}
                 <span className="absolute right-4 top-4 flex h-10 w-10 items-center justify-center border border-border bg-background/80 text-foreground">
                   {item.type === "video" ? <Play size={18} /> : <Maximize2 size={18} />}
                 </span>
               </Button>
-              <figcaption className="pointer-events-none"><span>{item.title}</span><span>{String(index + 1).padStart(2, "0")}</span></figcaption>
             </figure>
           ))}
         </div>
