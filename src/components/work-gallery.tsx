@@ -73,7 +73,7 @@ export function WorkGallery() {
       <Dialog open={selected !== null} onOpenChange={(open) => { if (!open) setSelected(null); }}>
         <DialogContent aria-describedby={undefined} className="max-w-5xl gap-4 rounded-none border-border bg-background p-5 pt-12">
           {selected && <>
-            <DialogTitle className="font-display">{selected.title}</DialogTitle>
+            <DialogTitle className="sr-only">{selected.type === "video" ? "Project video" : "Project photo"}</DialogTitle>
             {selected.type === "photo" ? <img src={selected.src} alt={selected.description} className="max-h-[70svh] w-full object-contain" /> : <video src={selected.src} poster={selected.poster} controls autoPlay playsInline className="max-h-[70svh] w-full" />}
           </>}
         </DialogContent>
