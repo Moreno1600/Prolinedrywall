@@ -32,10 +32,10 @@ export const Route = createFileRoute("/")({
 });
 
 const services = [
-  { number: "01", title: "Knockdown texture", description: "Sprayed, knocked down, and dried to the same depth across every square foot. Dimensional without looking heavy." },
-  { number: "02", title: "Orange peel texture", description: "A fine, even spray with everything masked and every edge cut clean. Texture that reads smooth, not speckled." },
-  { number: "03", title: "Level 4 smooth", description: "Tight seams, clean corners, paint-ready. The dependable finish for most rooms in the house." },
-  { number: "04", title: "Level 5 smooth", description: "A full skim coat that holds up to hard light and deep color. Flat under the flashlight, not just the camera." },
+  { number: "01", title: "Drywall installation", description: "Sheets hung tight and screwed to spec. Fewer seams, straight corners, and a solid base for everything after." },
+  { number: "02", title: "Taping & finishing", description: "Taped, mudded, and sanded in layers until the seams disappear. This is where a wall gets flat." },
+  { number: "03", title: "Texture", description: "Knockdown or orange peel, sprayed even and matched room to room. Everything masked, every edge cut clean." },
+  { number: "04", title: "Smooth finish", description: "Level 4 for most rooms. Level 5 skim coat when the light is harsh or the paint is dark. No texture to hide behind." },
   { number: "05", title: "Interior paint", description: "Color from the same crew that finished your walls. Rolling into the lineup soon.", status: "Coming soon" },
 ];
 
@@ -133,11 +133,11 @@ function Index() {
         <div className="mx-auto max-w-[90rem] px-5 lg:px-10">
           <div className="mb-16 grid gap-6 lg:grid-cols-2 lg:items-end">
             <div>
-              <p className="section-kicker">01 / Capabilities</p>
-              <h2 className="section-title">Every layer.<br />One standard.</h2>
+              <p className="section-kicker">01 / The process</p>
+              <h2 className="section-title">Hung to finished.<br />One crew.</h2>
             </div>
             <p className="max-w-lg text-lg leading-relaxed text-muted-foreground lg:justify-self-end">
-              Four finish systems, one bar to clear — chosen to match each room's light, use, and character.
+              From the first sheet to the final coat, every step is done in-house. No handoffs, no excuses.
             </p>
           </div>
           <div className="grid border-l border-t border-border sm:grid-cols-2 lg:grid-cols-5">

@@ -16,6 +16,10 @@ import v4 from "@/assets/proline-img-3945.mp4.asset.json";
 import p4 from "@/assets/proline-img-3945.jpg.asset.json";
 import v5 from "@/assets/proline-img-4120.mp4.asset.json";
 import p5 from "@/assets/proline-img-4120.jpg.asset.json";
+import knockdownImg from "@/assets/work-knockdown.jpg";
+import orangePeelImg from "@/assets/work-orange-peel.jpg";
+import level4Img from "@/assets/work-level4.jpg";
+import level5Img from "@/assets/work-level5.jpg";
 
 type WorkItem = {
   description: string;
@@ -28,6 +32,10 @@ const work: WorkItem[] = [
   { description: "Finished archway and tall interior drywall surfaces", type: "photo", src: archAsset.url },
   { description: "Custom green and wood built-in shelving with finished walls", type: "photo", src: builtinsAsset.url },
   { description: "Textured renovation space with black-framed windows", type: "photo", src: textureAsset.url },
+  { description: "Living room with knockdown texture", type: "photo", src: knockdownImg },
+  { description: "Bedroom with orange peel texture", type: "photo", src: orangePeelImg },
+  { description: "Hallway with Level 4 smooth finish", type: "photo", src: level4Img },
+  { description: "Great room with Level 5 smooth walls", type: "photo", src: level5Img },
   { type: "video", description: "ProLine job site video", src: v1.url, poster: p1.url },
   { type: "video", description: "ProLine job site video", src: v2.url, poster: p2.url },
   { type: "video", description: "ProLine job site video", src: v3.url, poster: p3.url },
