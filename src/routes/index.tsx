@@ -134,10 +134,10 @@ function Index() {
           <div className="mb-16 grid gap-6 lg:grid-cols-2 lg:items-end">
             <div>
               <p className="section-kicker">01 / The process</p>
-              <h2 className="section-title">Hung to finished.<br />One crew.</h2>
+              <h2 className="section-title">Every detail.<br />A higher standard.</h2>
             </div>
             <p className="max-w-lg text-lg leading-relaxed text-muted-foreground lg:justify-self-end">
-              From the first sheet to the final coat, every step is done in-house. No handoffs, no excuses.
+              From drywall installation to the final finish, see how careful preparation, skilled finishing, and attention to detail shape every project.
             </p>
           </div>
           <div className="grid border-l border-t border-border sm:grid-cols-2 lg:grid-cols-5">
