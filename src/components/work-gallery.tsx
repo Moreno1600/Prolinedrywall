@@ -51,7 +51,7 @@ export function WorkGallery() {
         <DialogContent aria-describedby={undefined} className="max-w-5xl gap-4 rounded-none border-border bg-background p-5 pt-12">
           {selected && <>
             <DialogTitle>{selected.title}</DialogTitle>
-            <video key={selected.video} src={selected.video} poster={selected.photo} controls autoPlay playsInline className="max-h-[70svh] w-full" />
+            <video key={selected.video} src={selected.video} poster={selected.photo} controls autoPlay muted playsInline onVolumeChange={(event) => { event.currentTarget.muted = true; event.currentTarget.volume = 0; }} className="max-h-[70svh] w-full" />
             <p className="text-sm text-muted-foreground">{selected.description}</p>
           </>}
         </DialogContent>

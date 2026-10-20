@@ -107,9 +107,6 @@ function Index() {
               Built clean.<br /><span className="text-primary">Finished sharp.</span>
             </h1>
             <div className="mt-8 flex flex-col items-start justify-between gap-8 border-t border-foreground/20 pt-7 md:flex-row md:items-end">
-              <p className="max-w-xl text-base leading-relaxed text-foreground/70 md:text-lg">
-                Knockdown, orange peel, Level 4, Level 5 — prepped tight, finished flat, and detailed like it has to pass the light test.
-              </p>
               <div className="flex flex-wrap gap-3">
                 <a href="#estimate" className="button-primary">Free estimate <ArrowDownRight size={17} /></a>
                 <a href="tel:4793204243" className="button-secondary">Call ProLine <Phone size={16} /></a>
