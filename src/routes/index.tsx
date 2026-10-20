@@ -174,11 +174,11 @@ function Index() {
       <section className="border-b border-border bg-background py-24 lg:py-32">
         <div className="mx-auto grid max-w-[90rem] gap-12 px-5 lg:grid-cols-12 lg:px-10">
           <div className="lg:col-span-7">
-            <p className="section-kicker">03 / Why ProLine</p>
-            <h2 className="section-title max-w-4xl">Your walls should disappear. The quality shouldn’t.</h2>
+            <p className="section-kicker">03 / Our clients</p>
+            <h2 className="section-title max-w-4xl">Who we’ve<br />worked with.</h2>
           </div>
           <div className="space-y-7 lg:col-span-4 lg:col-start-9 lg:pt-10">
-            {["Four finish systems, zero shortcuts", "Sharp detail around arches, corners, and built-ins", "Painting on the way — same crew, same standard"].map((item) => (
+            {["Dodo Coffee", "Contractors"].map((item) => (
               <div key={item} className="flex gap-4 border-t border-border pt-5">
                 <Check className="mt-0.5 shrink-0 text-primary" size={18} />
                 <p className="text-muted-foreground">{item}</p>
