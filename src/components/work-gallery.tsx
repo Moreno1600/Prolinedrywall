@@ -14,10 +14,10 @@ import p5 from "@/assets/proline-img-4120.jpg.asset.json";
 
 type Project = { title: string; description: string; video: string; photo: string; label: string };
 const projects: Project[] = [
-  { title: "Taping & Finishing", description: "A closer look at the seams, joints, and finishing work that prepare drywall for its final surface.", video: v2.url, photo: p2.url, label: "In progress" },
-  { title: "Drywall Project Progress", description: "See the preparation and detail involved in finishing interior walls and ceilings.", video: v3.url, photo: p3.url, label: "Behind the scenes" },
-  { title: "Smooth Interior Walls", description: "Clean wall surfaces, crisp corners, and architectural openings in a residential interior.", video: v5.url, photo: p5.url, label: "Interior finish" },
-  { title: "Completed Interior Showcase", description: "A look at completed interior spaces and the finished walls that bring a room together.", video: v4.url, photo: p4.url, label: "Finished space" },
+  { title: "Professional Drywall Finishing", description: "A closer look at the care and preparation behind professional drywall surfaces.", video: v2.url, photo: p2.url, label: "In progress" },
+  { title: "Residential Drywall Installation", description: "A behind-the-scenes look at residential drywall work and the steps involved in creating clean interiors.", video: v3.url, photo: p3.url, label: "Behind the scenes" },
+  { title: "Custom Interior Finishes", description: "Interior details, wall surfaces, and architectural features showcased through real job-site footage.", video: v5.url, photo: p5.url, label: "Interior finish" },
+  { title: "Completed Project Showcase", description: "A look at completed interior spaces and the finished walls that bring a room together.", video: v4.url, photo: p4.url, label: "Finished space" },
 ];
 const additional: Project = { title: "Residential Wall Surfaces", description: "An additional view of the interior finishes featured in our project footage.", video: v1.url, photo: p1.url, label: "More footage" };
 
