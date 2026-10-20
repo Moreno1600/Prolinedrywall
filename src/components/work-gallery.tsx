@@ -1,11 +1,6 @@
-import { Film, Image, Play, Maximize2 } from "lucide-react";
+import { Play, Maximize2 } from "lucide-react";
 import { useState } from "react";
-import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog";
-import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import archAsset from "@/assets/proline-arched-interior.png.asset.json";
-import builtinsAsset from "@/assets/proline-builtins.png.asset.json";
-import textureAsset from "@/assets/proline-texture-project.png.asset.json";
 import v1 from "@/assets/proline-img-3637.mp4.asset.json";
 import p1 from "@/assets/proline-img-3637.jpg.asset.json";
 import v2 from "@/assets/proline-img-3830.mp4.asset.json";
@@ -16,73 +11,48 @@ import v4 from "@/assets/proline-img-3945.mp4.asset.json";
 import p4 from "@/assets/proline-img-3945.jpg.asset.json";
 import v5 from "@/assets/proline-img-4120.mp4.asset.json";
 import p5 from "@/assets/proline-img-4120.jpg.asset.json";
-import knockdownImg from "@/assets/work-knockdown.jpg";
-import orangePeelImg from "@/assets/work-orange-peel.jpg";
-import level4Img from "@/assets/work-level4.jpg";
-import level5Img from "@/assets/work-level5.jpg";
 
-type WorkItem = {
-  description: string;
-  type: "photo" | "video";
-  src: string;
-  poster?: string;
-};
-
-const work: WorkItem[] = [
-  { description: "Finished archway and tall interior drywall surfaces", type: "photo", src: archAsset.url },
-  { description: "Custom green and wood built-in shelving with finished walls", type: "photo", src: builtinsAsset.url },
-  { description: "Textured renovation space with black-framed windows", type: "photo", src: textureAsset.url },
-  { description: "Living room with knockdown texture", type: "photo", src: knockdownImg },
-  { description: "Bedroom with orange peel texture", type: "photo", src: orangePeelImg },
-  { description: "Hallway with Level 4 smooth finish", type: "photo", src: level4Img },
-  { description: "Great room with Level 5 smooth walls", type: "photo", src: level5Img },
-  { type: "video", description: "ProLine job site video", src: v1.url, poster: p1.url },
-  { type: "video", description: "ProLine job site video", src: v2.url, poster: p2.url },
-  { type: "video", description: "ProLine job site video", src: v3.url, poster: p3.url },
-  { type: "video", description: "ProLine job site video", src: v4.url, poster: p4.url },
-  { type: "video", description: "ProLine job site video", src: v5.url, poster: p5.url },
+type Project = { title: string; description: string; video: string; photo: string; label: string };
+const projects: Project[] = [
+  { title: "Taping & Finishing", description: "A closer look at the seams, joints, and finishing work that prepare drywall for its final surface.", video: v2.url, photo: p2.url, label: "In progress" },
+  { title: "Drywall Project Progress", description: "See the preparation and detail involved in finishing interior walls and ceilings.", video: v3.url, photo: p3.url, label: "Behind the scenes" },
+  { title: "Smooth Interior Walls", description: "Clean wall surfaces, crisp corners, and architectural openings in a residential interior.", video: v5.url, photo: p5.url, label: "Interior finish" },
+  { title: "Completed Interior Showcase", description: "A look at completed interior spaces and the finished walls that bring a room together.", video: v4.url, photo: p4.url, label: "Finished space" },
 ];
+const additional: Project = { title: "Residential Wall Surfaces", description: "An additional view of the interior finishes featured in our project footage.", video: v1.url, photo: p1.url, label: "More footage" };
 
 export function WorkGallery() {
-  const [filter, setFilter] = useState("all");
-  const [selected, setSelected] = useState<WorkItem | null>(null);
-  const items = work.filter((item) => filter === "all" || item.type === filter);
-
+  const [selected, setSelected] = useState<Project | null>(null);
   return (
     <>
-      <Tabs value={filter} onValueChange={setFilter} className="mb-8">
-        <TabsList aria-label="Our work categories" className="h-12 gap-1 rounded-none border border-border bg-background p-1">
-          <TabsTrigger value="all" className="h-10 rounded-none px-4">All work</TabsTrigger>
-          <TabsTrigger value="photo" className="h-10 gap-2 rounded-none px-4"><Image size={15} aria-hidden="true" />Photos</TabsTrigger>
-          <TabsTrigger value="video" className="h-10 gap-2 rounded-none px-4"><Film size={15} aria-hidden="true" />Videos</TabsTrigger>
-        </TabsList>
-      </Tabs>
-      {items.length > 0 ? (
-        <div className="project-grid">
-          {items.map((item, index) => (
-            <figure key={item.src} className={`project ${index === 0 ? "project-tall" : "project-wide"}`}>
-              <Button variant="ghost" onClick={() => setSelected(item)} aria-label={item.type === "video" ? "Play video" : "View photo larger"} className="absolute inset-0 h-full w-full rounded-none p-0 hover:bg-transparent">
-                {item.type === "photo" ? <img src={item.src} alt={item.description} loading="lazy" /> : <video src={item.src} poster={item.poster} muted playsInline preload="metadata" className="h-full w-full object-cover" />}
-                <span className="absolute right-4 top-4 flex h-10 w-10 items-center justify-center border border-border bg-background/80 text-foreground">
-                  {item.type === "video" ? <Play size={18} /> : <Maximize2 size={18} />}
-                </span>
-              </Button>
-            </figure>
-          ))}
-        </div>
-      ) : (
-        <div className="flex min-h-72 flex-col items-center justify-center gap-4 border-y border-border text-center">
-          <Film size={28} className="text-primary" aria-hidden="true" />
-          <h3 className="font-display text-xl font-bold uppercase">From the job site.</h3>
-          <p className="text-sm text-muted-foreground">Project videos coming soon.</p>
-          <Button variant="link" onClick={() => setFilter("photo")}>View project photos</Button>
-        </div>
-      )}
+      <div className="mb-8 flex flex-wrap items-center justify-between gap-3">
+        <p className="text-sm text-muted-foreground">Real job-site footage. Select a photo to watch the project video.</p>
+        <span className="font-mono text-xs uppercase tracking-widest text-primary">04 featured projects</span>
+      </div>
+      <div className="grid gap-5 sm:grid-cols-2">
+        {projects.map((project) => (
+          <article key={project.title} className="group overflow-hidden border border-border bg-background">
+            <button type="button" onClick={() => setSelected(project)} className="relative block w-full overflow-hidden text-left" aria-label={`Watch ${project.title} video`}>
+              <img src={project.photo} alt={project.title + " — actual project video still"} loading="lazy" className="aspect-[4/3] w-full object-cover transition-transform duration-500 group-hover:scale-105" />
+              <span className="absolute inset-0 bg-black/20 transition-colors group-hover:bg-black/35" />
+              <span className="absolute left-1/2 top-1/2 flex h-16 w-16 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border border-white/70 bg-black/60 text-white"><Play size={24} fill="currentColor" /></span>
+              <span className="absolute bottom-4 left-4 bg-background/90 px-3 py-1 font-mono text-[0.65rem] uppercase tracking-widest">{project.label}</span>
+            </button>
+            <div className="p-6">
+              <h3 className="font-display text-2xl font-bold uppercase">{project.title}</h3>
+              <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{project.description}</p>
+              <button type="button" onClick={() => setSelected(project)} className="mt-5 inline-flex items-center gap-2 text-sm font-bold uppercase text-primary hover:underline">Watch project <Play size={15}/></button>
+            </div>
+          </article>
+        ))}
+      </div>
+      <button type="button" onClick={() => setSelected(additional)} className="mt-7 inline-flex items-center gap-2 text-sm font-bold text-primary hover:underline"><Maximize2 size={16}/> View additional project footage</button>
       <Dialog open={selected !== null} onOpenChange={(open) => { if (!open) setSelected(null); }}>
         <DialogContent aria-describedby={undefined} className="max-w-5xl gap-4 rounded-none border-border bg-background p-5 pt-12">
           {selected && <>
-            <DialogTitle className="sr-only">{selected.type === "video" ? "Project video" : "Project photo"}</DialogTitle>
-            {selected.type === "photo" ? <img src={selected.src} alt={selected.description} className="max-h-[70svh] w-full object-contain" /> : <video src={selected.src} poster={selected.poster} controls autoPlay playsInline className="max-h-[70svh] w-full" />}
+            <DialogTitle>{selected.title}</DialogTitle>
+            <video key={selected.video} src={selected.video} poster={selected.photo} controls autoPlay playsInline className="max-h-[70svh] w-full" />
+            <p className="text-sm text-muted-foreground">{selected.description}</p>
           </>}
         </DialogContent>
       </Dialog>
